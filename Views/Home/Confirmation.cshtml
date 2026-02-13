@@ -1,0 +1,11 @@
+﻿@model Mission06_Baird.Models.Movie
+@{
+    ViewData["Title"] = "Movie Added";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Success!</h1>
+    <p>The movie <strong>@Model.Title</strong> has been added to the collection.</p>
+    <a asp-action="Index" class="btn btn-secondary">Return Home</a>
+    <a asp-action="EnterMovie" class="btn btn-primary">Add Another</a>
+</div>
