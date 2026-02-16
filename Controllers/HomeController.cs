@@ -25,16 +25,24 @@ namespace Mission06_Baird.Controllers
             return View();
         }
 
-        // Display all movies in the collection
-        public IActionResult MovieList()
+        // Display all movies in the collection, optionally filtered by category
+        public IActionResult MovieList(int? categoryId)
         {
-            // Include Category navigation property to display category name
+            ViewBag.Categories = _context.Categories
+                .OrderBy(c => c.CategoryName)
+                .ToList();
+            ViewBag.SelectedCategory = categoryId;
+
             var movies = _context.Movies
                 .Include(m => m.Category)
-                .OrderBy(m => m.Title)
-                .ToList();
+                .AsQueryable();
 
-            return View(movies);
+            if (categoryId.HasValue)
+            {
+                movies = movies.Where(m => m.CategoryId == categoryId.Value);
+            }
+
+            return View(movies.OrderBy(m => m.Title).ToList());
         }
 
         // GET: Show the Add Movie form
