@@ -77,7 +77,7 @@ h1, h2, h3 {
 
 /* --- HERO IMAGES (Home & Get To Know Joel) --- */
 .hero-img {
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
     margin-top: 1rem;
     border-radius: 16px;
