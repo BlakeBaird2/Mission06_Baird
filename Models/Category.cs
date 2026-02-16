@@ -9,6 +9,6 @@ namespace Mission06_Baird.Models
         public int CategoryId { get; set; }
 
         [Required]
-        public string CategoryName { get; set; }
+        public string? CategoryName { get; set; }
     }
 }

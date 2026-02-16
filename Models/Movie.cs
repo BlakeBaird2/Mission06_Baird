@@ -30,10 +30,8 @@ namespace Mission06_Baird.Models
         [Required(ErrorMessage = "Rating is required")]
         public string? Rating { get; set; }
 
-        [Required(ErrorMessage = "Edited is required")]
         public bool Edited { get; set; }
 
-        [Required(ErrorMessage = "Copied to Plex is required")]
         [Display(Name = "Copied to Plex")]
         public bool CopiedToPlex { get; set; }
 
