@@ -13,6 +13,15 @@ namespace Mission06_Baird.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Tell EF Core these DB columns are nullable
+            // ([Required] is kept on the model for form validation only)
+            modelBuilder.Entity<Movie>(entity =>
+            {
+                entity.Property(m => m.Title).IsRequired(false);
+                entity.Property(m => m.Director).IsRequired(false);
+                entity.Property(m => m.Rating).IsRequired(false);
+            });
+
             // Seed category data
             modelBuilder.Entity<Category>().HasData(
                 new Category { CategoryId = 1, CategoryName = "Action" },
