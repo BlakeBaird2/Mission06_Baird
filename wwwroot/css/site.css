@@ -15,7 +15,7 @@ body {
     padding: 3rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, expensive-looking shadow */
-    max-width: 900px;
+    max-width: 1400px;
 }
 
 /* --- NAVIGATION BAR --- */
@@ -101,9 +101,13 @@ label {
     font-size: 1.1rem;
     font-weight: 600;
     border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+/* Full-width submit buttons only inside forms */
+form .btn-primary[type="submit"] {
     width: 100%;
     margin-top: 1rem;
-    transition: transform 0.2s;
 }
 
     .btn-primary:hover {
