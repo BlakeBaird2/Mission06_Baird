@@ -7,6 +7,7 @@ body {
 }
 
 /* --- LAYOUT CONTAINER --- */
+/* Default: narrow container for forms, info pages */
 .main-container {
     background: #ffffff;
     margin-top: 2.5rem;
@@ -14,6 +15,11 @@ body {
     padding: 2.5rem 3rem;
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+}
+
+/* Wide variant: for pages with tables/lots of data */
+.main-container.main-container-wide {
     max-width: 95%;
 }
 
