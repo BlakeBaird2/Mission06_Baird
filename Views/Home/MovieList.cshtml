@@ -11,7 +11,7 @@
     <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
         <a asp-action="EnterMovie" class="btn btn-primary">Add New Movie</a>
 
-        <form asp-action="MovieList" method="get">
+        <form asp-action="MovieList" method="get" style="max-width: none; margin: 0;">
             <select name="categoryId" id="categoryId" class="form-select" style="min-width: 220px;" onchange="this.form.submit()">
                 <option value="">All Categories</option>
                 @foreach (var cat in ViewBag.Categories)
