@@ -25,8 +25,8 @@
     <form asp-action="DeleteConfirmed" method="post">
         <input type="hidden" name="movieId" value="@Model.MovieId" />
         <div class="d-flex gap-3">
-            <button type="submit" class="btn btn-danger flex-fill">Delete</button>
-            <a asp-action="MovieList" class="btn btn-secondary flex-fill text-center">Cancel</a>
+            <button type="submit" class="btn btn-danger btn-action flex-fill">Delete</button>
+            <a asp-action="MovieList" class="btn btn-secondary btn-action flex-fill text-center">Cancel</a>
         </div>
     </form>
 </div>

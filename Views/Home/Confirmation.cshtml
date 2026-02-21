@@ -6,6 +6,8 @@
 <div class="text-center">
     <h1 class="display-4">Success!</h1>
     <p>The movie <strong>@Model.Title</strong> has been added to the collection.</p>
-    <a asp-action="MovieList" class="btn btn-secondary">View Collection</a>
-    <a asp-action="EnterMovie" class="btn btn-primary">Add Another</a>
+    <div class="d-flex gap-3 justify-content-center">
+        <a asp-action="MovieList" class="btn btn-secondary btn-action">View Collection</a>
+        <a asp-action="EnterMovie" class="btn btn-primary btn-action">Add Another</a>
+    </div>
 </div>
