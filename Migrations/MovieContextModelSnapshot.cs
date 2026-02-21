@@ -61,7 +61,6 @@ namespace Mission06_Baird.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Edited")
@@ -75,11 +74,9 @@ namespace Mission06_Baird.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Year")
