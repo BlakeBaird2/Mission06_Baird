@@ -164,6 +164,14 @@ form .btn-primary[type="submit"] {
     vertical-align: middle;
 }
 
+/* Truncate long text in table cells with ellipsis; full text shown on hover */
+.truncate-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 0; /* forces the cell to respect the col width */
+}
+
 /* --- IMAGES (general) --- */
 img {
     border-radius: 12px;
