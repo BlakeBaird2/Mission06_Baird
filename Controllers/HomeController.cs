@@ -25,13 +25,14 @@ namespace Mission06_Baird.Controllers
             return View();
         }
 
-        // Display all movies in the collection, optionally filtered by category
-        public IActionResult MovieList(int? categoryId)
+        // Display all movies in the collection, optionally filtered by category or search
+        public IActionResult MovieList(int? categoryId, string? searchString)
         {
             ViewBag.Categories = _context.Categories
                 .OrderBy(c => c.CategoryName)
                 .ToList();
             ViewBag.SelectedCategory = categoryId;
+            ViewBag.SearchString = searchString;
 
             var movies = _context.Movies
                 .Include(m => m.Category)
@@ -40,6 +41,15 @@ namespace Mission06_Baird.Controllers
             if (categoryId.HasValue)
             {
                 movies = movies.Where(m => m.CategoryId == categoryId.Value);
+            }
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var search = searchString.ToLower();
+                movies = movies.Where(m =>
+                    m.Title.ToLower().Contains(search) ||
+                    (m.Director != null && m.Director.ToLower().Contains(search)) ||
+                    (m.LentTo != null && m.LentTo.ToLower().Contains(search)));
             }
 
             return View(movies.OrderBy(m => m.Title).ToList());
