@@ -13,6 +13,14 @@ namespace Mission06_Baird.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Allow NULLs from the provided database while keeping [Required] for form validation
+            modelBuilder.Entity<Movie>(entity =>
+            {
+                entity.Property(m => m.Title).IsRequired(false);
+                entity.Property(m => m.Director).IsRequired(false);
+                entity.Property(m => m.Rating).IsRequired(false);
+            });
+
             // Seed category data
             modelBuilder.Entity<Category>().HasData(
                 new Category { CategoryId = 1, CategoryName = "Action" },
