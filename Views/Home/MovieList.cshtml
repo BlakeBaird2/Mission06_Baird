@@ -58,7 +58,7 @@
                 <th>Copied to Plex</th>
                 <th>Lent To</th>
                 <th>Notes</th>
-                <th>Actions</th>
+                <th style="min-width: 130px;">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -74,11 +74,13 @@
                     <td>@(movie.CopiedToPlex ? "Yes" : "No")</td>
                     <td>@movie.LentTo</td>
                     <td>@movie.Notes</td>
-                    <td class="text-nowrap">
-                        <a asp-action="Edit" asp-route-id="@movie.MovieId"
-                           class="btn btn-sm btn-warning">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@movie.MovieId"
-                           class="btn btn-sm btn-danger">Delete</a>
+                    <td>
+                        <div class="d-flex gap-1 flex-nowrap">
+                            <a asp-action="Edit" asp-route-id="@movie.MovieId"
+                               class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@movie.MovieId"
+                               class="btn btn-sm btn-danger">Delete</a>
+                        </div>
                     </td>
                 </tr>
             }
