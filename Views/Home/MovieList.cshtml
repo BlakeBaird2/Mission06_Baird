@@ -15,22 +15,22 @@
             {
                 <input type="hidden" name="categoryId" value="@ViewBag.SelectedCategory" />
             }
-            <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" placeholder="Search movies..." style="min-width: 250px;" />
-            <button type="submit" class="btn btn-outline-secondary">Search</button>
+            <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control toolbar-control" placeholder="Search movies..." style="min-width: 250px;" />
+            <button type="submit" class="btn btn-outline-secondary toolbar-btn">Search</button>
             @if (!string.IsNullOrEmpty(ViewBag.SearchString as string))
             {
-                <a asp-action="MovieList" asp-route-categoryId="@ViewBag.SelectedCategory" class="btn btn-outline-danger btn-sm">Clear</a>
+                <a asp-action="MovieList" asp-route-categoryId="@ViewBag.SelectedCategory" class="btn btn-outline-danger toolbar-btn">Clear</a>
             }
         </form>
 
         @* Buttons and filter — right side *@
-        <div class="d-flex align-items-center gap-3">
+        <div class="d-flex align-items-center gap-2">
             <form asp-action="MovieList" method="get" style="max-width: none; margin: 0;">
                 @if (!string.IsNullOrEmpty(ViewBag.SearchString as string))
                 {
                     <input type="hidden" name="searchString" value="@ViewBag.SearchString" />
                 }
-                <select name="categoryId" id="categoryId" class="form-select" style="min-width: 220px;" onchange="this.form.submit()">
+                <select name="categoryId" id="categoryId" class="form-select toolbar-control" style="min-width: 200px;" onchange="this.form.submit()">
                     <option value="">All Categories</option>
                     @foreach (var cat in ViewBag.Categories)
                     {
@@ -42,7 +42,7 @@
                 </select>
             </form>
 
-            <a asp-action="EnterMovie" class="btn btn-primary text-nowrap">Add New Movie</a>
+            <a asp-action="EnterMovie" class="btn btn-primary toolbar-btn text-nowrap">+ Add Movie</a>
         </div>
     </div>
 
